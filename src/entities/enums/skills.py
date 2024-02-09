@@ -1,38 +1,46 @@
 from enum import Enum
 
 
-class SkillsEnum(str, Enum):
-    ...
+class SkillsNames(str, Enum): ...
 
 
-class StrengthSkillsEnum(SkillsEnum, Enum):
-    athletics = 'athletics'
+class StrengthSkillsNames(SkillsNames, Enum):
+    athletics = "athletics"
+    saving_throw = "saving_throw"
 
 
-class DexteritySkillsEnum(SkillsEnum, Enum):
-    acrobatics = 'acrobatics'
-    sleight_of_hand = 'sleight_of_hand'
-    stealth = 'stealth'
+class DexteritySkillsNames(SkillsNames, Enum):
+    acrobatics = "acrobatics"
+    sleight_of_hand = "sleight_of_hand"
+    stealth = "stealth"
+    saving_throw = "saving_throw"
 
 
-class IntelligenceSkillsEnum(SkillsEnum, Enum):
-    arcana = 'arcana'
-    history = 'history'
-    investigation = 'investigation'
-    religion = 'religion'
-    nature = 'nature'
+class IntelligenceSkillsNames(SkillsNames, Enum):
+    arcana = "arcana"
+    history = "history"
+    investigation = "investigation"
+    religion = "religion"
+    nature = "nature"
+    saving_throw = "saving_throw"
 
 
-class WisdomSkillsEnum(SkillsEnum, Enum):
-    animal_handling = 'animal_handling'
-    insight = 'insight'
-    medicine = 'medicine'
-    perception = 'perception'
-    survival = 'survival'
+class ConstitutionSkillsNames(SkillsNames, Enum):
+    saving_throw = "saving_throw"
 
 
-class CharismaSkillsEnum(SkillsEnum, Enum):
-    deception = 'deception'
-    intimidation = 'intimidation'
-    performance = 'performance'
-    persuasion = 'persuasion'
+class WisdomSkillsNames(SkillsNames, Enum):
+    animal_handling = "animal_handling"
+    insight = "insight"
+    medicine = "medicine"
+    perception = "perception"
+    survival = "survival"
+    saving_throw = "saving_throw"
+
+
+class CharismaSkillsNames(SkillsNames, Enum):
+    deception = "deception"
+    intimidation = "intimidation"
+    performance = "performance"
+    persuasion = "persuasion"
+    saving_throw = "saving_throw"

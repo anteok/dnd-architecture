@@ -1,7 +1,16 @@
 from abc import abstractmethod
 from typing import Optional
 
-from entities.abilities import AbilityPoints, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, Ability
+from entities.abilities import (
+    AbilityPoints,
+    Strength,
+    Dexterity,
+    Constitution,
+    Intelligence,
+    Wisdom,
+    Charisma,
+    Ability,
+)
 
 
 class Character:
