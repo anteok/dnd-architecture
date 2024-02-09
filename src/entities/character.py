@@ -9,11 +9,20 @@ from entities.abilities import (
     Intelligence,
     Wisdom,
     Charisma,
-    Ability,
+    Ability, StrengthMixin, DexterityMixin, IntelligenceMixin, WisdomMixin, CharismaMixin, ConstitutionMixin,
 )
 
 
-class Character:
+class Character(
+    StrengthMixin,
+    DexterityMixin,
+    IntelligenceMixin,
+    ConstitutionMixin,
+    WisdomMixin,
+    CharismaMixin,
+):
+    level = 1
+    proficiency = 2
     spelling_ability: Optional[Ability] = None
     health_points = 0
     max_health_points = 0
@@ -21,10 +30,10 @@ class Character:
     speed = 0
 
     def __init__(self, ability_points: AbilityPoints):
+        StrengthMixin.__init__(self, ability_points)
+        DexterityMixin.__init__(self, ability_points)
+        IntelligenceMixin.__init__(self, ability_points)
+        ConstitutionMixin.__init__(self, ability_points)
+        WisdomMixin.__init__(self, ability_points)
+        CharismaMixin.__init__(self, ability_points)
 
-        self.strength = Strength(ability_points.strength)
-        self.dexterity = Dexterity(ability_points.dexterity)
-        self.constitution = Constitution(ability_points.constitution)
-        self.intelligence = Intelligence(ability_points.intelligence)
-        self.wisdom = Wisdom(ability_points.wisdom)
-        self.charisma = Charisma(ability_points.charisma)

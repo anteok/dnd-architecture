@@ -14,11 +14,16 @@ from entities.enums.skills import (
 @dataclass
 class SkillValue:
     modifier: int
-    is_proficient: bool = False
+    proficiency: int = 0
+
+    @property
+    def value(self):
+        return self.modifier + self.proficiency
 
 
 class AbilitySkills:
     _skills_names: SkillsNames
+    saving_throw: SkillValue
 
     def __init__(self, modifier: int) -> None:
         self._skills_container = {
