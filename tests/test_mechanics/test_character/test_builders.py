@@ -2,7 +2,7 @@ import pytest
 
 from entities.abilities import AbilityPoints
 from entities.character import Character
-from mechanics.character.builder import HumanBuilder
+from mechanics.character.builder import HumanBuilder, ElfBuilder
 
 
 class TestBuilders:
@@ -58,3 +58,44 @@ class TestBuilders:
         assert human.charisma.saving_throw == -1
 
         assert human.speed == 30
+
+    def test_elf_builder(self, character):
+        elf = ElfBuilder().apply_race(character)
+
+        assert elf.strength._points == 15
+        assert elf.athletics == 2
+        assert elf.strength.saving_throw == 2
+
+        assert elf.dexterity._points == 16
+        assert elf.stealth == 3
+        assert elf.sleight_of_hand == 3
+        assert elf.acrobatics == 3
+        assert elf.dexterity.saving_throw == 3
+
+        assert elf.constitution._points == 13
+        assert elf.constitution.saving_throw == 1
+
+        assert elf.intelligence._points == 12
+        assert elf.arcana == 1
+        assert elf.nature == 1
+        assert elf.history == 1
+        assert elf.religion == 1
+        assert elf.investigation == 1
+        assert elf.intelligence.saving_throw == 1
+
+        assert elf.wisdom._points == 10
+        assert elf.animal_handling == 0
+        assert elf.medicine == 0
+        assert elf.perception == 2
+        assert elf.insight == 0
+        assert elf.survival == 0
+        assert elf.wisdom.saving_throw == 0
+
+        assert elf.charisma._points == 8
+        assert elf.deception == -1
+        assert elf.persuasion == -1
+        assert elf.performance == -1
+        assert elf.intimidation == -1
+        assert elf.charisma.saving_throw == -1
+
+        assert elf.speed == 30
