@@ -1,15 +1,10 @@
-from abc import abstractmethod
 from typing import Optional
 
 from entities.abilities import (
     AbilityPoints,
-    Strength,
-    Dexterity,
-    Constitution,
-    Intelligence,
-    Wisdom,
-    Charisma,
-    Ability, StrengthMixin, DexterityMixin, IntelligenceMixin, WisdomMixin, CharismaMixin, ConstitutionMixin,
+    Ability,
+    StrengthMixin,
+    DexterityMixin, IntelligenceMixin, WisdomMixin, CharismaMixin, ConstitutionMixin,
 )
 
 
