@@ -29,8 +29,9 @@ class HumanBuilder(AbstractRaceBuilder):
 
 class BaseElfBuilderMixin:
 
-    def _apply_default(self, character: Character):
+    def _apply_default(self, character: Character) -> None:
         character.wisdom.skills.perception.proficiency = character.proficiency
+        character.speed = 30
 
 
 class ElfBuilder(AbstractRaceBuilder, BaseElfBuilderMixin):
@@ -39,6 +40,32 @@ class ElfBuilder(AbstractRaceBuilder, BaseElfBuilderMixin):
     def apply_race(self, character: Character) -> Character:
         self._apply_default(character)
         character.dexterity.increment_points(2)
-        character.speed = 30
         return character
 
+
+class HighElfBuilder(AbstractRaceBuilder, BaseElfBuilderMixin):
+    _race = Races.high_elf
+
+    def apply_race(self, character: Character) -> Character:
+        self._apply_default(character)
+        character.intelligence.increment_points(1)
+        return character
+
+
+class WoodElfBuilder(AbstractRaceBuilder, BaseElfBuilderMixin):
+    _race = Races.wood_elf
+
+    def apply_race(self, character: Character) -> Character:
+        self._apply_default(character)
+        character.wisdom.increment_points(1)
+        character.speed = 35
+        return character
+
+
+class DrawBuilder(AbstractRaceBuilder, BaseElfBuilderMixin):
+    _race = Races.draw
+
+    def apply_race(self, character: Character) -> Character:
+        self._apply_default(character)
+        character.charisma.increment_points(1)
+        return character
